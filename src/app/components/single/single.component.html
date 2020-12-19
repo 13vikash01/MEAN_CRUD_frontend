@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-body">
+        <h4>Employee Detail</h4>
+
+        <div class="row col-md-6 col-md-offset-2 custyle">
+            <table class="table table-striped custab display">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Employee Date of Birth</th>
+                        <th>Employee Salary</th>
+                        <th>Employee Skills</th>
+                        <th>Update</th>
+                        <th>Delete</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                        <td>{{employee._id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.dob}}</td>
+                        <td>Rs {{employee.salary}}</td>
+                        <td>{{employee.skill}}</td>
+                        <td><button class="btn btn-primary"  (click)="update(employee)">Update</button></td>
+                        <td><button class="btn btn-danger"   (click)="delete(employee)">Delete</button></td> 
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

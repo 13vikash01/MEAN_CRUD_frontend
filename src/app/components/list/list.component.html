@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-body">
+        <h4>Employees List</h4>
+
+        <div class="row col-md-6 col-md-offset-2 custyle">
+            <table class="table table-striped custab display">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Employee Date of Birth</th>
+                        <th>Employee Salary</th>
+                        <th>Employee Skills</th>
+                        <th>View</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let employee of employees | paginate: { id: 'listing_pagination',
+                        itemsPerPage: 5, 
+                        currentPage: page,
+                        totalrec: Total}">
+                        <td>{{employee._id}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.dob}}</td>
+                        <td>Rs {{employee.salary}}</td>
+                        <td>{{employee.skill}}</td>
+                        <td><button class="btn btn-primary"  (click)="View_employee(employee)">View</button></td>
+                        <td><button class="btn btn-primary"  (click)="update(employee)">Update</button></td>
+                        <td><button class="btn btn-danger"   (click)="delete(employee)">Delete</button></td>
+                    </tr> 
+               
+                    <!-- <tr *ngFor="let emp of employees">
+                        <td>{{emp._id}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.salary}}</td>
+                        <td>{{emp.dob}}</td>
+                        <td>{{emp.skill}}</td>
+                        <td><button class="btn btn-primary" (click)="update(emp)">Update</button></td>
+                        <td><button class="btn btn-danger" (click)="delete(emp)">Delete</button></td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <div>
+                <pagination-controls  id="listing_pagination" maxSize="4" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
