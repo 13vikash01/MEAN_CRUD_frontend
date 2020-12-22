@@ -2,25 +2,41 @@
     <h1 style="text-align:center;">Add Your Details</h1>
     <div class="row">
         <div style="width: 30%; margin: 25px auto;">
-            <form (ngSubmit)="create_update()">
+            <form (ngSubmit)="create_update()"  #employeeform="ngForm">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" [(ngModel)]="employee.name" placeholder="Name">
+                    <input class="form-control" type="text" name="name" required [(ngModel)]="employee.name" placeholder="Name *">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="date" name="dob"  [(ngModel)]="employee.dob"  placeholder="Date of birth">
+                    <input class="form-control" type="date" name="dob" required [(ngModel)]="employee.dob"  placeholder="Date of birth *">
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="text" name="image"  required [(ngModel)]="employee.image"  placeholder="Image url *">
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Skilled in MongoDb (between 1 and 10) *:</label>
+                <input class="form-control" type="number" name="MongoDb" required [(ngModel)]="employee.Mongodb" min="1" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Skilled in Express (between 1 and 10) *:</label>
+                <input class="form-control" type="number" name="MongoDb" required [(ngModel)]="employee.Express" min="1" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Skilled in Node (between 1 and 10) *:</label>
+                <input class="form-control" type="number" name="MongoDb" required [(ngModel)]="employee.Node" min="1" max="10">
                 </div>
                 
+
                 <div class="form-group">
-                    <input class="form-control" type="text" name="skill"  [(ngModel)]="employee.skill"  placeholder="Skill">
+                    <input class="form-control" type="number" name="salary" required [(ngModel)]="employee.salary"  placeholder="salary *">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="number" name="salary" [(ngModel)]="employee.salary"  placeholder="salary">
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit">
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!employeeform.valid" value="Submit">
                 </div>
             </form>
-            <!-- <a href="/campgrounds">Go back</a> -->
         </div>
     </div>
 </div>

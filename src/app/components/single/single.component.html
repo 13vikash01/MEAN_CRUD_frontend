@@ -6,22 +6,26 @@
             <table class="table table-striped custab display">
                 <thead>
                     <tr>
-                        <th>Employee ID</th>
+                        <th>Employee Image</th>
                         <th>Employee Name</th>
                         <th>Employee Date of Birth</th>
                         <th>Employee Salary</th>
-                        <th>Employee Skills</th>
+                        <th>Skilled in MongoDB</th>
+                        <th>Skilled in Express</th>
+                        <th>Skilled in Node</th>
                         <th>Update</th>
                         <th>Delete</th> 
                     </tr>
                 </thead>
                 <tbody>
                 <tr>
-                        <td>{{employee._id}}</td>
+                        <td><img src="{{employee.image}}" alt="" style="width: 50px;height: 50px;"></td>
                         <td>{{employee.name}}</td>
                         <td>{{employee.dob}}</td>
                         <td>Rs {{employee.salary}}</td>
-                        <td>{{employee.skill}}</td>
+                        <td>{{employee.Mongodb}}</td>
+                        <td>{{employee.Express}}</td>
+                        <td>{{employee.Node}}</td>
                         <td><button class="btn btn-primary"  (click)="update(employee)">Update</button></td>
                         <td><button class="btn btn-danger"   (click)="delete(employee)">Delete</button></td> 
                     </tr> 

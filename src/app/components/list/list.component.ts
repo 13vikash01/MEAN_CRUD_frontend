@@ -10,7 +10,8 @@ import { Router} from '@angular/router';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-    public employees : any;
+    public employees :  any;
+    name:String;
     Total : number;
     page: number = 1;
 
@@ -58,11 +59,16 @@ export class ListComponent implements OnInit {
       data=>{
                 location.reload();   
         },
-          error=>{
+        error=>{
          console.log(error); 
         }
      )
    }
-
+   
+   search(){
+     this.employees.filter(res=>{
+       return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
+     })
+   }
 
 }
